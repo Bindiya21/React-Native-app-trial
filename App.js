@@ -14,6 +14,10 @@ export default function App() {
   //     setUserAgen(deviceInfo+' PWAShell')
   //   })
   // },[])
+  useEffect(() => { 
+    Klaviyo.initialize('S2XXdy');
+    Klaviyo.registerForPushNotifications();
+  },[])
   
   return (
     <View style={styles.container}>

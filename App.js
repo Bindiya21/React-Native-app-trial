@@ -4,7 +4,7 @@ import { WebView } from "react-native-webview";
 import { Dimensions } from "react-native";
 // import DeviceInfo from 'react-native-device-info';
 import { useEffect, useState } from "react";
-import {Klaviyo} from 'react-native-klaviyo';
+import { Klaviyo } from "klaviyo-react-native-sdk";
 
 
 const deviceHeight = Dimensions.get("screen").height;

@@ -4,6 +4,7 @@ import { WebView } from "react-native-webview";
 import { Dimensions } from "react-native";
 // import DeviceInfo from 'react-native-device-info';
 import { useEffect, useState } from "react";
+import {Klaviyo} from 'react-native-klaviyo';
 
 
 const deviceHeight = Dimensions.get("screen").height;
@@ -14,6 +15,7 @@ export default function App() {
   //     setUserAgen(deviceInfo+' PWAShell')
   //   })
   // },[])
+
   useEffect(() => { 
     Klaviyo.initialize('S2XXdy');
     Klaviyo.registerForPushNotifications();

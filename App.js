@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { ActivityIndicator } from "react-native";
 const deviceWidth = Dimensions.get("screen").width;
 const deviceHeight = Dimensions.get("screen").height;
+
 export default function App() {
   // const [userAgent, setUserAgen] = useState('');
   // useEffect(() => {

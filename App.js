@@ -8,6 +8,16 @@ import { Klaviyo } from "klaviyo-react-native-sdk";
 
 
 const deviceHeight = Dimensions.get("screen").height;
+
+export const initialize = async () => {
+  try {
+    Klaviyo.initialize('S2XXdy');
+    Klaviyo.registerForPushNotifications();
+  } catch (e) {
+    console.log("klaviyo err",e);
+  }
+}
+
 export default function App() {
   // const [userAgent, setUserAgen] = useState('');
   // useEffect(() => {
@@ -17,8 +27,7 @@ export default function App() {
   // },[])
 
   useEffect(() => { 
-    Klaviyo.initialize('S2XXdy');
-    Klaviyo.registerForPushNotifications();
+    initialize();
   },[])
   
   return (

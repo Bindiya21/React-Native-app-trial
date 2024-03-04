@@ -12,7 +12,7 @@ const deviceHeight = Dimensions.get("screen").height;
 
 // export const initialize = async () => {
 //   try {
-//     Klaviyo.initialize('S2XXdy');
+//     Klaviyo.initialize('apikey');
 //     Klaviyo.registerForPushNotifications();
 //   } catch (e) {
 //     console.log("klaviyo err",e);

@@ -6,6 +6,7 @@ import { Dimensions } from "react-native";
 import { useEffect, useState } from "react";
 // import { Klaviyo } from "klaviyo-react-native-sdk";
 import { ActivityIndicator } from "react-native";
+import { Klaviyo } from "klaviyo-react-native-sdk";
 const deviceWidth = Dimensions.get("screen").width;
 const deviceHeight = Dimensions.get("screen").height;
 
@@ -21,12 +22,14 @@ export default function App() {
   const hideSpinner = () => {
     setVisible(false);
   };
-  // useEffect(() => {
-  //   Klaviyo.init({
-  //     publicApiKey: "pk_8e10b39134a9d92247ff800364ebb7aa6b",
-  //   });
-  //   Klaviyo.registerForPushNotifications();
-  // }, []);
+  useEffect(() => {
+    try {
+      Klaviyo.initialize("S2XXdy");
+      Klaviyo.registerForPushNotifications();
+    } catch (e) {
+      console.log("Klaviyo err",e);
+    }
+  }, []);
 
   return (
     <View style={styles.container}>

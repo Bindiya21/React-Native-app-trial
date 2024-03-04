@@ -1,6 +1,5 @@
 {
   "expo": {
-    "scheme": "olivelaapp",
     "name": "OlivelaReactNativeApp",
     "slug": "OlivelaReactNativeApp",
     "version": "1.7.0",
@@ -12,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.olivela.stagereactnative"
@@ -21,15 +22,25 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.olivela.stagereactnative"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "37a4e8d7-291f-46bd-ae0a-dff00aad10a0"
+        "projectId": "37a4e8d7-291f-46bd-ae0a-dff00aad10a0",
+        "oneSignalAppId": "33b6dcec-d730-4f0d-940c-d96911c8a19e"
       }
-    }
+    },
+    "plugins": [
+      [
+        "onesignal-expo-plugin",
+        {
+          "mode": "development"
+        }
+      ]
+    ]
   }
 }

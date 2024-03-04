@@ -5,10 +5,19 @@ import { Dimensions } from "react-native";
 // import DeviceInfo from 'react-native-device-info';
 import { useEffect, useState } from "react";
 // import { Klaviyo } from "klaviyo-react-native-sdk";
-import { ActivityIndicator } from "react-native";
-import { Klaviyo } from "klaviyo-react-native-sdk";
-const deviceWidth = Dimensions.get("screen").width;
+import { LogLevel, OneSignal } from 'react-native-onesignal';
+import Constants from "expo-constants";
+
 const deviceHeight = Dimensions.get("screen").height;
+
+// export const initialize = async () => {
+//   try {
+//     Klaviyo.initialize('S2XXdy');
+//     Klaviyo.registerForPushNotifications();
+//   } catch (e) {
+//     console.log("klaviyo err",e);
+//   }
+// }
 
 export default function App() {
   // const [userAgent, setUserAgen] = useState('');
@@ -18,39 +27,22 @@ export default function App() {
   //   })
   // },[])
 
-  const [visible, setVisible] = useState(true);
-  const hideSpinner = () => {
-    setVisible(false);
-  };
+  // useEffect(() => { 
+  //   initialize();
+  // },[])
+  
   useEffect(() => {
-    try {
-      Klaviyo.initialize("S2XXdy");
-      Klaviyo.registerForPushNotifications();
-    } catch (e) {
-      console.log("Klaviyo err",e);
-    }
-  }, []);
+    OneSignal.Debug.setLogLevel(LogLevel.Verbose);
+    OneSignal.initialize(Constants.expoConfig.extra.oneSignalAppId);
 
+    // Also need enable notifications to complete OneSignal setup
+    // OneSignal.Notifications.requestPermission(true);
+
+  }, []);
+  
   return (
     <View style={styles.container}>
-      <WebView
-        onLoad={() => {
-          hideSpinner();
-        }}
-        source={{ uri: "https://stageui.olivela.com/" }}
-        style={{ flex: 1 }}
-        userAgent="PWAShell"
-      />
-      {visible && (
-        <ActivityIndicator
-          style={{
-            position: "absolute",
-            top: deviceHeight / 2,
-            left: deviceWidth / 2,
-          }}
-          size="large"
-        />
-      )}
+     
     </View>
   );
 }
